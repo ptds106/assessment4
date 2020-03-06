@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import "./App.css";
+import CircleSelector from "./components/CircleSelector";
+import Circle from "./components/Circle";
 
 function App() {
+  const [selectedCircleArr, setSelectedCircleArr] = useState([
+    "Select Circle 1",
+    "Select Circle 2",
+    "Select Circle 3",
+    "Select Circle 4"
+  ]);
+  const [selectCircle, setSelectCircle] = useState(selectedCircleArr[0]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <header className="App-header">UNIT 4 FINAL ASSESSMENT</header>
+      <main>
+        <CircleSelector
+          selectCircle={selectCircle}
+          selectedCircleArr={selectedCircleArr}
+          setSelectCircle={setSelectCircle}
+        />
+        <Circle selectCircle={selectCircle} />
+      </main>
     </div>
   );
 }
